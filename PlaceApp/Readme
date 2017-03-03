@@ -1,0 +1,7 @@
+The TableView controller is build using navigationcontroller and is the intial view controller.
+It displays the place list
+The edit button can be used to delete a place
+The "+" button is used to add a new place. It directs you to the next screen where you can enter details
+The save button saves the details of the newly added place
+The save button also helps to modify the the place description of an existing place
+The picker selects the place and gives the distance and initial bearing to the selected place

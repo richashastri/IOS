@@ -5,6 +5,18 @@
 //  Created by rshastri on 2/28/17.
 //  Copyright © 2017 rshastri. All rights reserved.
 //
+// Copyright 2017 Richa Shastri
+//
+//
+//I give the full right to Dr lindquist and Arizona State University to build my project and evaluate it or the purpose of determining your grade and program assessment.
+//
+//Purpose: The place library class that contains the hashmap for place name and its description
+//
+// Ser423 Mobile Applications
+//see http://pooh.poly.asu.edu/Mobile
+//@author Richa Shastri Richa.Shastri@asu.edu
+//        Software Engineering, CIDSE, ASU Poly
+//@version March 02, 2017
 import Foundation
 
 class PlaceLibrary {
@@ -22,7 +34,7 @@ class PlaceLibrary {
                 for aplacename:String in dict.keys {
                     let aplace:PlaceDescription = PlaceDescription(dict: dict[aplacename] as! [String:Any])
                     self.placedesc[aplacename] = aplace
-                    //print("NEW" + aplacename)
+                    
                 }
             } catch {
                 print("contents of students.json could not be loaded")

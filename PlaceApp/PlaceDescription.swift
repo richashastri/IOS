@@ -10,13 +10,13 @@
 //
 //I give the full right to Dr lindquist and Arizona State University to build my project and evaluate it or the purpose of determining your grade and program assessment.
 //
-//Purpose: The class PlaceDescription is declared and the setters and getters are set for its members
+//Purpose: The place description class that initializes the place object
 //
 // Ser423 Mobile Applications
 //see http://pooh.poly.asu.edu/Mobile
 //@author Richa Shastri Richa.Shastri@asu.edu
 //        Software Engineering, CIDSE, ASU Poly
-//@version January 17, 2017
+//@version March 02, 2017
 
 import Foundation
 

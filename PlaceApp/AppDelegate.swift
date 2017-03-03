@@ -5,6 +5,18 @@
 //  Created by rshastri on 3/1/17.
 //  Copyright © 2017 rshastri. All rights reserved.
 //
+// Copyright 2017 Richa Shastri
+//
+//
+//I give the full right to Dr lindquist and Arizona State University to build my project and evaluate it or the purpose of determining your grade and program assessment.
+//
+//Purpose: The app delegate class
+//
+// Ser423 Mobile Applications
+//see http://pooh.poly.asu.edu/Mobile
+//@author Richa Shastri Richa.Shastri@asu.edu
+//        Software Engineering, CIDSE, ASU Poly
+//@version March 02, 2017
 
 import UIKit
 
