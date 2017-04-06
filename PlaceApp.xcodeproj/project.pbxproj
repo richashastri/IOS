@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C5460061E695816008ABF5B /* Readme in Resources */ = {isa = PBXBuildFile; fileRef = 4C5460051E695816008ABF5B /* Readme */; };
 		4C6789BD1E67C3FF00567B26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6789BC1E67C3FF00567B26 /* AppDelegate.swift */; };
 		4C6789BF1E67C3FF00567B26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6789BE1E67C3FF00567B26 /* ViewController.swift */; };
 		4C6789C21E67C3FF00567B26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C6789C01E67C3FF00567B26 /* Main.storyboard */; };
@@ -17,7 +18,7 @@
 		4C6789EB1E67C42800567B26 /* PlaceDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6789EA1E67C42800567B26 /* PlaceDescription.swift */; };
 		4C6789ED1E67C48400567B26 /* PlaceLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6789EC1E67C48400567B26 /* PlaceLibrary.swift */; };
 		4C6789EF1E67C4E600567B26 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6789EE1E67C4E600567B26 /* TableViewController.swift */; };
-		4C6789F11E67C85500567B26 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 4C6789F01E67C85500567B26 /* data.json */; };
+		4C94EEE31E95E7E200B3EAA4 /* placecollectionstub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C94EEE21E95E7E200B3EAA4 /* placecollectionstub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C5460051E695816008ABF5B /* Readme */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme; sourceTree = "<group>"; };
 		4C6789B91E67C3FF00567B26 /* PlaceApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlaceApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C6789BC1E67C3FF00567B26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4C6789BE1E67C3FF00567B26 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +56,7 @@
 		4C6789EA1E67C42800567B26 /* PlaceDescription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceDescription.swift; sourceTree = "<group>"; };
 		4C6789EC1E67C48400567B26 /* PlaceLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceLibrary.swift; sourceTree = "<group>"; };
 		4C6789EE1E67C4E600567B26 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
-		4C6789F01E67C85500567B26 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
+		4C94EEE21E95E7E200B3EAA4 /* placecollectionstub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = placecollectionstub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,8 @@
 				4C6789EA1E67C42800567B26 /* PlaceDescription.swift */,
 				4C6789EC1E67C48400567B26 /* PlaceLibrary.swift */,
 				4C6789EE1E67C4E600567B26 /* TableViewController.swift */,
-				4C6789F01E67C85500567B26 /* data.json */,
+				4C5460051E695816008ABF5B /* Readme */,
+				4C94EEE21E95E7E200B3EAA4 /* placecollectionstub.swift */,
 			);
 			path = PlaceApp;
 			sourceTree = "<group>";
@@ -244,10 +247,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C5460061E695816008ABF5B /* Readme in Resources */,
 				4C6789C71E67C3FF00567B26 /* LaunchScreen.storyboard in Resources */,
 				4C6789C41E67C3FF00567B26 /* Assets.xcassets in Resources */,
 				4C6789C21E67C3FF00567B26 /* Main.storyboard in Resources */,
-				4C6789F11E67C85500567B26 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +280,7 @@
 				4C6789BD1E67C3FF00567B26 /* AppDelegate.swift in Sources */,
 				4C6789EF1E67C4E600567B26 /* TableViewController.swift in Sources */,
 				4C6789ED1E67C48400567B26 /* PlaceLibrary.swift in Sources */,
+				4C94EEE31E95E7E200B3EAA4 /* placecollectionstub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -521,6 +525,7 @@
 				4C6789E31E67C3FF00567B26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C6789E41E67C3FF00567B26 /* Build configuration list for PBXNativeTarget "PlaceAppTests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +534,7 @@
 				4C6789E61E67C3FF00567B26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4C6789E71E67C3FF00567B26 /* Build configuration list for PBXNativeTarget "PlaceAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +543,7 @@
 				4C6789E91E67C3FF00567B26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
