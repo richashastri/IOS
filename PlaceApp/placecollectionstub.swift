@@ -78,12 +78,12 @@ public class placecollectionstub {
         }
         return ret
     }
-    /*
-    func add(student: PlaceDescription, callback: @escaping (String, String?) -> Void) -> Bool{
+    
+    func add(place: PlaceDescription, callback: @escaping (String, String?) -> Void) -> Bool{
         var ret:Bool = false
         placecollectionstub.id = placecollectionstub.id + 1
         do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"add", "params":[student.toDict()], "id":placecollectionstub.id]
+            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"add", "params":[place.toDict()], "id":placecollectionstub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
             self.asyncHttpPostJSON(url: self.url, data: reqData, completion: callback)
             ret = true
@@ -91,13 +91,13 @@ public class placecollectionstub {
             print(error)
         }
         return ret
-    }*/
+    }
     
-    func remove(studentName: String, callback: @escaping (String, String?) -> Void) -> Bool{
+    func remove(placeName: String, callback: @escaping (String, String?) -> Void) -> Bool{
         var ret:Bool = false
         placecollectionstub.id = placecollectionstub.id + 1
         do {
-            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"remove", "params":[studentName], "id":placecollectionstub.id]
+            let dict:[String:Any] = ["jsonrpc":"2.0", "method":"remove", "params":[placeName], "id":placecollectionstub.id]
             let reqData:Data = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions(rawValue: 0))
             self.asyncHttpPostJSON(url: self.url, data: reqData, completion: callback)
             ret = true

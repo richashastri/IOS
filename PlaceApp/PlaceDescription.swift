@@ -193,6 +193,25 @@ class PlaceDescription{
         
     }
     
+    func toJsonString() -> String {
+        var jsonStr = "";
+        let dict = ["name": name, "description": description, "category": category, "address-title": addressTitle ,"address-street": addressStreet, "elevation": elevation,"latitude":latitude, "longitude":longitude , "image": image  ] as [String : Any]
+        do {
+            let jsonData = try JSONSerialization.data(withJSONObject: dict, options: JSONSerialization.WritingOptions.prettyPrinted)
+            // here "jsonData" is the dictionary encoded in JSON data
+            jsonStr = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+        } catch let error as NSError {
+            print(error)
+        }
+        return jsonStr
+    }
+
+    
+    func toDict() -> [String:Any] {
+        let dict:[String:Any] = ["name": name, "description": description, "category": category, "address-title": addressTitle ,"address-street": addressStreet, "elevation": elevation,"latitude":latitude, "longitude":longitude , "image": image] as [String : Any]
+        return dict
+    }
+    
     
     
 }

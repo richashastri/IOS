@@ -125,13 +125,17 @@ class TableViewController: UITableViewController {
 
             print("tableView editing row at: \(indexPath.row)")
             if editingStyle == .delete {
-                //let selectedStudent:String = place.names[indexPath.row]
-                //print("deleting the student \(selectedStudent)")
+                let selectedplace:String = places[indexPath.row]
+                print("deleting the student \(selectedplace)")
+                let aConnect:placecollectionstub = placecollectionstub(urlString: urlString)
+                let _:Bool = aConnect.remove(placeName: selectedplace,callback: { _ in
+                    self.getmyvalues()
+                })
                 //place.placedesc.removeValue(forKey: selectedStudent)
                 //place.names = Array(place.placedesc.keys).sorted()
                 //self.places.removeValue(forKey: selectedStudent)
                 //self.places = Array(place.placedesc.keys).sorted()
-                tableView.deleteRows(at: [indexPath], with: .fade)
+                //tableView.deleteRows(at: [indexPath], with: .fade)
                 // do
         }
     }

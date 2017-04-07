@@ -31,8 +31,9 @@ extension FloatingPoint {
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    //var place:PlaceLibrary = PlaceLibrary()
+    var places:[String]=[String]()
     var selectedplace:String = "unknown"
+    let urlString:String = "http://127.0.0.1:8080"
     
     
     @IBOutlet weak var distid: UILabel!
@@ -53,23 +54,82 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var latid: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.gethefields();
         // Do any additional setup after loading the view, typically from a nib.
-        if(selectedplace != "unknown"){
-            Nameid.text = "\(self.place.placedesc[selectedplace]!.name)"
-            descid.text = "\(self.place.placedesc[selectedplace]!.description)"
-            imgid.text = "\(self.place.placedesc[selectedplace]!.image)"
-            addsid.text = "\(self.place.placedesc[selectedplace]!.addressStreet)"
-            addtid.text = "\(self.place.placedesc[selectedplace]!.addressTitle)"
-            catid.text = "\(self.place.placedesc[selectedplace]!.category)"
-            latid.text = "\(self.place.placedesc[selectedplace]!.latitude)"
-            longid.text = "\(self.place.placedesc[selectedplace]!.longitude)"
-            eleid.text = "\(self.place.placedesc[selectedplace]!.elevation)"
-            pickerview.dataSource = self
-            pickerview.delegate = self
-        }
+        self.getmyvalues();
+        
         
         
     }
+    
+    func gethefields(){
+        
+        
+        
+            let aConnect:placecollectionstub = placecollectionstub(urlString: urlString)
+            let _:Bool = aConnect.get(name: selectedplace, callback: { (res: String, err: String?) -> Void in
+                if err != nil {
+                    NSLog(err!)
+                }else{
+                    NSLog(res)
+                    if let data: Data = res.data(using: String.Encoding.utf8){
+                        do{
+                            let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:AnyObject]
+                            let aDict:[String:AnyObject] = (dict!["result"] as? [String:AnyObject])!
+                            let aplace:PlaceDescription = PlaceDescription(dict: aDict)
+                            self.Nameid.text = "\(aplace.name)"
+                            self.descid.text = "\(aplace.description)"
+                            self.imgid.text = "\(aplace.image)"
+                            self.addsid.text = "\(aplace.addressStreet)"
+                            self.addtid.text = "\(aplace.addressTitle)"
+                            self.catid.text = "\(aplace.category)"
+                            self.latid.text = "\(aplace.latitude)"
+                            self.longid.text = "\(aplace.longitude)"
+                            self.eleid.text = "\(aplace.elevation)"
+                            
+                            
+                            
+                        } catch {
+                            NSLog("unable to convert to dictionary")
+                        }
+                    }
+                }
+            })
+        
+    }
+        
+    func getmyvalues() {
+            let aConnect:placecollectionstub = placecollectionstub(urlString: urlString)
+            let resultNames:Bool = aConnect.getNames(callback: { (res: String, err: String?) -> Void in
+                if err != nil {
+                    NSLog(err!)
+                }else{
+                    NSLog(res)
+                    if let data: Data = res.data(using: String.Encoding.utf8){
+                        do{
+                            let dict = try JSONSerialization.jsonObject(with: data,options:.mutableContainers) as?[String:AnyObject]
+                            self.places = (dict!["result"] as? [String])!
+                            print(self.places[0])
+                            self.places = Array(self.places).sorted()
+                            self.pickerview.dataSource = self
+                            self.pickerview.delegate = self
+                            self.pickerview.reloadAllComponents()
+                            //self.studSelectTF.text = ((self.students.count>0) ? self.students[0] : "")
+                            //self.studentPicker.reloadAllComponents()
+                            //if self.students.count > 0 {
+                            //    self.callGetNPopulatUIFields(self.students[0])
+                            //}
+                        } catch {
+                            print("unable to convert to dictionary")
+                        }
+                    }
+                    
+                }
+            })  // end of method call to getNames
+            
+        }
+
 
     @IBAction func addingfields(_ sender: Any) {
         print("save")
@@ -85,12 +145,13 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         let placedesc = PlaceDescription(name:myname, description:mydesc,category:mycat,addressTitle:myaddt, addressStreet:myadds, elevation: Double(myele)!, latitude: Double(mylat)!, longitude: Double(mylong)!,image:myimg)
         
-        self.place.placedesc[myname] = placedesc
-        self.place.names = Array(place.placedesc.keys).sorted()
-        print(myname)
-        //self.tableView.reloadData()
+        let aConnect:placecollectionstub = placecollectionstub(urlString: urlString)
         
-        //NSString *name = Nameid.text
+        let _:Bool = aConnect.add(place: placedesc,callback: { _ in
+            self.places.append(placedesc.name)
+            self.pickerview.reloadAllComponents()
+            //self.callGetNPopulatUIFields(studName)
+        })
         
         
         
@@ -103,11 +164,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         // Pass the selected object to the new view controller.
         if segue.identifier == "saveid" {
             print("i was called")
-            print(place.names[0])
+            //print(place.names[0])
             let navController = segue.destination as! UINavigationController
-            //let detailController = navController.viewControllers.first as! TableViewController
+            let detailController = navController.viewControllers.first as! TableViewController
             
-            //let myviewController:TableViewController = segue.destination as! TableViewController
+            let myviewController:TableViewController = segue.destination as! TableViewController
             //etailController.place = self.place
             //print(place.names[0])
             
@@ -127,21 +188,21 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return place.names.count
+        return self.places.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return place.names[row]
+        return self.places[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let p:String = place.names[row]
-        dist(letplace: p)
+        let p:String = self.places[row]
+        //dist(letplace: p)
     }
     
     
     
-    func dist(letplace:String) {
+    /*func dist(letplace:String) {
         
         let lat1 = self.place.placedesc[letplace]!.latitude
         //print(lat1)
@@ -177,7 +238,9 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         
         
-    }
+        }
+ */
     
-}
+    
 
+}
