@@ -19,13 +19,13 @@
 //see http://pooh.poly.asu.edu/Mobile
 //@author Richa Shastri Richa.Shastri@asu.edu
 //        Software Engineering, CIDSE, ASU Poly
-//@version March 02, 2017
+//@version April 06, 2017
 
 import UIKit
 
 class TableViewController: UITableViewController {
     
-    //var place:PlaceLibrary = PlaceLibrary()
+    
     var places:[String]=[String]()
     let urlString:String = "http://127.0.0.1:8080"
 
@@ -63,11 +63,7 @@ class TableViewController: UITableViewController {
                         print(self.places[0])
                         self.places = Array(self.places).sorted()
                         self.tableView.reloadData()
-                        //self.studSelectTF.text = ((self.students.count>0) ? self.students[0] : "")
-                        //self.studentPicker.reloadAllComponents()
-                        //if self.students.count > 0 {
-                        //    self.callGetNPopulatUIFields(self.students[0])
-                        //}
+                        
                     } catch {
                         print("unable to convert to dictionary")
                     }
@@ -131,12 +127,7 @@ class TableViewController: UITableViewController {
                 let _:Bool = aConnect.remove(placeName: selectedplace,callback: { _ in
                     self.getmyvalues()
                 })
-                //place.placedesc.removeValue(forKey: selectedStudent)
-                //place.names = Array(place.placedesc.keys).sorted()
-                //self.places.removeValue(forKey: selectedStudent)
-                //self.places = Array(place.placedesc.keys).sorted()
-                //tableView.deleteRows(at: [indexPath], with: .fade)
-                // do
+                
         }
     }
     

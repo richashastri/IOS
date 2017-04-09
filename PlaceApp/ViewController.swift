@@ -16,7 +16,7 @@
 //see http://pooh.poly.asu.edu/Mobile
 //@author Richa Shastri Richa.Shastri@asu.edu
 //        Software Engineering, CIDSE, ASU Poly
-//@version March 02, 2017
+//@version April 06, 2017
 
 import UIKit
 
@@ -115,11 +115,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                             self.pickerview.dataSource = self
                             self.pickerview.delegate = self
                             self.pickerview.reloadAllComponents()
-                            //self.studSelectTF.text = ((self.students.count>0) ? self.students[0] : "")
-                            //self.studentPicker.reloadAllComponents()
-                            //if self.students.count > 0 {
-                            //    self.callGetNPopulatUIFields(self.students[0])
-                            //}
+                            
                         } catch {
                             print("unable to convert to dictionary")
                         }
@@ -150,7 +146,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         let _:Bool = aConnect.add(place: placedesc,callback: { _ in
             self.places.append(placedesc.name)
             self.pickerview.reloadAllComponents()
-            //self.callGetNPopulatUIFields(studName)
+            
         })
         
         
@@ -162,7 +158,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "saveid" {
+        /*if segue.identifier == "saveid" {
             print("i was called")
             //print(place.names[0])
             let navController = segue.destination as! UINavigationController
@@ -173,6 +169,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             //print(place.names[0])
             
         }
+ */
         
     }
    

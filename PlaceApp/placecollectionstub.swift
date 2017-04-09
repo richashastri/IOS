@@ -5,6 +5,18 @@
 //  Created by rshastri on 4/5/17.
 //  Copyright © 2017 rshastri. All rights reserved.
 //
+// Copyright 2017 Richa Shastri
+//
+//
+//I give the full right to Dr lindquist and Arizona State University to build my project and evaluate it or the purpose of determining your grade and program assessment.
+//
+//Purpose: The stud for RPC calls to the server
+//
+// Ser423 Mobile Applications
+//see http://pooh.poly.asu.edu/Mobile
+//@author Richa Shastri Richa.Shastri@asu.edu
+//        Software Engineering, CIDSE, ASU Poly
+//@version April 06, 2017
 
 import Foundation
 
